@@ -7,6 +7,9 @@ const tableRoutes = require('./routes/tableRoutes');
 const promoRoutes = require('./routes/promoCodeRoutes');
 const reviewRoutes = require('./routes/reviewRoutes');
 const salaryRoutes = require('./routes/salaryPaymentRoutes');
+const serviceRoutes = require('./routes/serviceRequestRoutes');
+const categoryRoutes = require('./routes/categoryRoutes');
+const expenseRoutes = require('./routes/expenseRoutes');
 
 const app = express();
 app.use(cors());
@@ -19,6 +22,9 @@ app.use('/api/tables', tableRoutes);
 app.use('/api/promo-codes', promoRoutes);
 app.use('/api/reviews', reviewRoutes);
 app.use('/api/salary-payments', salaryRoutes);
+app.use('/api/service-requests', serviceRoutes);
+app.use('/api/categories', categoryRoutes);
+app.use('/api/expenses', expenseRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Restaurant API running on port ${PORT}`));
