@@ -10,6 +10,8 @@ const salaryRoutes = require('./routes/salaryPaymentRoutes');
 const serviceRoutes = require('./routes/serviceRequestRoutes');
 const categoryRoutes = require('./routes/categoryRoutes');
 const expenseRoutes = require('./routes/expenseRoutes');
+const menuItemRoutes = require('./routes/menuItemRoutes');
+const statusCtrl = require('./controllers/statusController');
 
 const app = express();
 app.use(cors());
@@ -25,6 +27,8 @@ app.use('/api/salary-payments', salaryRoutes);
 app.use('/api/service-requests', serviceRoutes);
 app.use('/api/categories', categoryRoutes);
 app.use('/api/expenses', expenseRoutes);
+app.use('/api/menu-items', menuItemRoutes);
+app.get('/status', statusCtrl.getSystemStatus);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Restaurant API running on port ${PORT}`));
